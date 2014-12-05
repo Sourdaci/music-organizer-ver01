@@ -50,6 +50,18 @@ public class MusicOrganizer
     }
     
     /**
+     * Comprueba si existe el indice introducido. Responde con los validos solo si no existe
+     */
+    public void checkIndex (int index){
+        int sizeFiles = files.size();
+        if (sizeFiles == 0){
+            System.out.println("Lista de canciones vacia");
+        }else if(index < 0 || index > (sizeFiles - 1)){
+            System.out.println("El rango de indices valido es de 0 a " + (sizeFiles - 1));
+        }
+    }
+    
+    /**
      * Remove a file from the collection.
      * @param index The index of the file to be removed.
      */
