@@ -43,7 +43,7 @@ public class MusicOrganizer
      */
     public void listFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index)) {
             String filename = files.get(index);
             System.out.println(filename);
         }
@@ -62,12 +62,23 @@ public class MusicOrganizer
     }
     
     /**
+     * Devuelve un boolean que indica la existencia del indice introducido
+     */
+    public boolean validIndex(int index){
+        Boolean exist = true;
+        if(index > (files.size() -1) || index < 0){
+            exist = false;
+        }
+        return exist;
+    }
+    
+    /**
      * Remove a file from the collection.
      * @param index The index of the file to be removed.
      */
     public void removeFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index)) {
             files.remove(index);
         }
     }
